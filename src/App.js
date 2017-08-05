@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TopMenu from './components/top-menu'
-import Card from './components/card'
+import Card from './components/card/card'
 
 class App extends Component {
   render() {
