@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import TopMenu from './components/top-menu/top-menu'
-import Card from './components/card/card'
-import Form from './components/form/form'
+
+import Card from '../card/card'
+import TopMenu from '../top-menu/top-menu'
+import Form from '../form/form'
 
 class App extends Component {
   render() {

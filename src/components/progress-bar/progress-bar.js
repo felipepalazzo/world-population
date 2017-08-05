@@ -1,6 +1,7 @@
 import React from 'react'
-import BSbar from 'react-bootstrap/lib/ProgressBar'
 import PropTypes from 'prop-types'
+
+import BSbar from 'react-bootstrap/lib/ProgressBar'
 import './progress-bar.css'
 
 const ProgressBar = ({firstHalf, secondHalf}) => (

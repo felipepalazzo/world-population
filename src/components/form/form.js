@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import Slider from '../slider/slider'
 import BSbutton from 'react-bootstrap/lib/Button'
 

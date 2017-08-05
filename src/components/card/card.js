@@ -1,6 +1,7 @@
 /* globals require */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+
 import ProgressBar from '../progress-bar/progress-bar'
 import './card.css'
 
