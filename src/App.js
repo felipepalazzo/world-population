@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import TopMenu from './components/top-menu'
+import TopMenu from './components/top-menu/top-menu'
 import Card from './components/card/card'
+import Form from './components/form/form'
 
 class App extends Component {
   render() {
@@ -16,6 +17,11 @@ class App extends Component {
       <div>
         <TopMenu />
         <div className="container">
+          <div className="row">
+            <div className="col-sm-4 col-sm-offset-2">
+              <Form />
+            </div>
+          </div>
           <div className="row">
             <div className="col-sm-4">
               <Card info={info}/>
