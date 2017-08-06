@@ -21,8 +21,8 @@ const CardList = ({countries, groupBy}) => {
   )
 }
 
-
 CardList.propTypes = {
+  groupBy: PropTypes.number.isRequired,
   countries: PropTypes.arrayOf(
     PropTypes.shape({
       country: PropTypes.string.isRequired,

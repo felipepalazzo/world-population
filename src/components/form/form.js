@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+
 import { fetchCountries } from '../../actions'
 import Slider from '../../components/slider/slider'
 import BSbutton from 'react-bootstrap/lib/Button'
