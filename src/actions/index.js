@@ -7,7 +7,7 @@ export const FETCH_COUNTRIES_FAIL = 'FETCH_COUNTRIES_FAIL'
 const ROOT_URL = 'http://api.population.io/1.0/population/'
 
 export function fetchCountries (year, age) {
-  const url = `${ROOT_URL}/${year}/aged/${age}/?format=json`
+  const url = `${ROOT_URL}${year}/aged/${age}/?format=json`
   return function (dispatch) {
     dispatch({type: FETCH_COUNTRIES})
     axios.get(url)
