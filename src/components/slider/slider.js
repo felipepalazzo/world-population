@@ -28,7 +28,7 @@ Slider.propTypes = {
   name:PropTypes.string.isRequired,
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   onValueChange: PropTypes.func.isRequired,
 }
 

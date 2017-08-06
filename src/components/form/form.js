@@ -10,7 +10,7 @@ import './form.css'
 class Form extends Component {
   constructor(props) {
     super(props)
-    this.state = {age: 18, year: 2017}
+    this.state = {age: '18', year: '2017'}
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }

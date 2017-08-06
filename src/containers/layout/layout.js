@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import CardList from '../card-list/card-list'
-import Form from '../form/form'
+import CardList from '../../components/card-list/card-list'
+import Form from '../../components/form/form'
 
 class Layout extends Component {
   render () {
