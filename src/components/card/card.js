@@ -11,7 +11,13 @@ class Card extends Component {
   }
   render() {
     const { country, females, males, total } = this.props.info
-    const imgUrl = require(`../../assets/flags/${country}.png`)
+    let imgUrl
+    try {
+      let countryWithDashes = country.replace(' ', '-')
+      imgUrl = require(`../../assets/flags/${countryWithDashes}.png`)
+    } catch (e) {
+      imgUrl = require('../../assets/flags/onu.png')
+    }
     return (
       <div className="panel panel-default card">
         <div className="panel-body">

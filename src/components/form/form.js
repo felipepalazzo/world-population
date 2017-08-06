@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { fetchCountries } from '../../actions'
 import Slider from '../../components/slider/slider'
 import BSbutton from 'react-bootstrap/lib/Button'
@@ -46,14 +47,8 @@ class Form extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { countries, error, fetched, fetching } = state
-  return {
-    countries,
-    fetched,
-    fetching,
-    error,
-  }
+Form.propTypes = {
+  dispatch: PropTypes.func.isRequired
 }
 
-export default connect(mapStateToProps)(Form)
+export default connect()(Form)

@@ -1,19 +1,12 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import Card from '../card/card'
+import CardList from '../card-list/card-list'
 import TopMenu from '../top-menu/top-menu'
-import Form from '../../containers/form/form'
+import Form from '../form/form'
 
 class App extends Component {
   render() {
-    const info = {
-      'females': 154912,
-      'country': 'Afghanistan',
-      'age': 0,
-      'males': 139668,
-      'year': 1950,
-      'total': 294580
-    }
     return (
       <div>
         <TopMenu />
@@ -23,15 +16,21 @@ class App extends Component {
               <Form />
             </div>
           </div>
-          <div className="row">
-            <div className="col-sm-4">
-              <Card info={info}/>
-            </div>
-          </div>
+          <CardList countries={this.props.countries} groupBy={3} />
         </div>
       </div>
     )
   }
 }
 
-export default App
+const mapStateToProps = (state) => {
+  const { countries, error, fetched, fetching } = state
+  return {
+    countries,
+    fetched,
+    fetching,
+    error,
+  }
+}
+
+export default connect(mapStateToProps)(App)
