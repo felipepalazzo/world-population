@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Card from '../card/card'
 import TopMenu from '../top-menu/top-menu'
-import Form from '../form/form'
+import Form from '../../containers/form/form'
 
 class App extends Component {
   render() {
