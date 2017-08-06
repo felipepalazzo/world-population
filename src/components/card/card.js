@@ -13,8 +13,8 @@ class Card extends Component {
     const { country, females, males, total } = this.props.info
     let imgUrl
     try {
-      let countryWithDashes = country.replace(' ', '-')
-      imgUrl = require(`../../assets/flags/${countryWithDashes}.png`)
+      let countryNameWithDashes = country.replace(' ', '-')
+      imgUrl = require(`../../assets/flags/${countryNameWithDashes}.png`)
     } catch (e) {
       imgUrl = require('../../assets/flags/onu.png')
     }

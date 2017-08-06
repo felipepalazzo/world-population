@@ -10,13 +10,14 @@ class Slider extends Component {
     this.props.onValueChange(this.props.name, event.target.value)
   }
   render() {
-    const { name, min, max } = this.props
+    const { name, min, max, value } = this.props
     return (
       <input
         type="range"
         name={name}
         min={min}
         max={max}
+        value={value}
         onChange={this.handleChange}
       />
     )
@@ -27,6 +28,7 @@ Slider.propTypes = {
   name:PropTypes.string.isRequired,
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
   onValueChange: PropTypes.func.isRequired,
 }
 

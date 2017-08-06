@@ -7,20 +7,27 @@ import Form from '../form/form'
 
 class Layout extends Component {
   render () {
+    const { countries, fetching } = this.props
     return (
       <div className="container">
         <div className="row">
-          <div className="col-sm-4 col-sm-offset-2">
-            <Form />
+          <div className="col-sm-4 col-sm-offset-4">
+            <div className="well">
+              <Form fetching={fetching} />
+            </div>
+            <div className="text-center">
+              { countries.length ? '' : 'Set age and year to get population info' }
+            </div>
           </div>
         </div>
-        <CardList countries={this.props.countries} groupBy={3} />
+        <CardList countries={countries} groupBy={3} />
       </div>
     )
   }
 }
 
 Layout.propTypes = {
+  fetching: PropTypes.bool.isRequired,
   countries: PropTypes.arrayOf(
     PropTypes.shape({
       country: PropTypes.string.isRequired,
