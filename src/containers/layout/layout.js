@@ -7,7 +7,7 @@ import Form from '../../components/form/form'
 
 class Layout extends Component {
   render () {
-    const { countries, fetching } = this.props
+    const { countries, fetching, error } = this.props
     return (
       <div className="container">
         <div className="row">
@@ -22,6 +22,11 @@ class Layout extends Component {
             </div>
           </div>
         </div>
+        { error &&
+          <div className="alert alert-danger">
+            {error ? `Erro: ${error.statusText}` : ''}
+          </div>
+        }
         <CardList countries={countries} groupBy={3} />
       </div>
     )
@@ -30,6 +35,7 @@ class Layout extends Component {
 
 Layout.propTypes = {
   fetching: PropTypes.bool.isRequired,
+  error: PropTypes.object,
   countries: PropTypes.arrayOf(
     PropTypes.shape({
       country: PropTypes.string.isRequired,

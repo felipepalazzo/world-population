@@ -15,7 +15,7 @@ export function fetchCountries (year, age) {
         dispatch({type: FETCH_COUNTRIES_SUCESS, payload: response.data})
       })
       .catch((err) => {
-        dispatch({type: FETCH_COUNTRIES_FAIL, payload: err})
+        dispatch({type: FETCH_COUNTRIES_FAIL, payload: err.response})
       })
   }
 }
