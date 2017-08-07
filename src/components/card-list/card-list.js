@@ -5,13 +5,18 @@ import _ from 'lodash'
 import Card from '../card/card'
 
 const CardList = ({countries, groupBy}) => {
+  const gridIndex = 12
+  if (groupBy > gridIndex) {
+    groupBy = gridIndex
+  }
   const groupedCountries = _.chunk(countries, groupBy)
+  const gridSize = Math.floor(gridIndex/groupBy)
   return (
     <div>
       {groupedCountries.map((groups, index) => (
         <div key={index} className="row">
           {groups.map((country, index) => (
-            <div className="col-sm-4" key={index}>
+            <div className={`col-sm-${gridSize}`} key={index}>
               <Card info={country} />
             </div>
           ))}
