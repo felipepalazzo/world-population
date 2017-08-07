@@ -16,7 +16,9 @@ class Layout extends Component {
               <Form fetching={fetching} />
             </div>
             <div className="text-center">
-              { countries.length ? '' : 'Set age and year to get population info' }
+              { countries.length ? '' :
+                'Set age and year to get population info and gender distribution'
+              }
             </div>
           </div>
         </div>
