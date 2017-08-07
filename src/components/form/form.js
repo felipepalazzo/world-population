@@ -23,7 +23,7 @@ class Form extends Component {
     this.setState({[name]: value})
   }
   render() {
-    const config = {
+    const ranges = {
       yearMin: 1950,
       yearMax: 2100,
       ageMin: 0,
@@ -39,8 +39,8 @@ class Form extends Component {
             <span className="pull-right">Age: <strong>{age}</strong></span>
             <Slider
               name={'age'}
-              min={config.ageMin}
-              max={config.ageMax}
+              min={ranges.ageMin}
+              max={ranges.ageMax}
               value={age}
               onValueChange={this.handleChange} />
           </div>
@@ -49,8 +49,8 @@ class Form extends Component {
             <span className="pull-right">Year: <strong>{year}</strong></span>
             <Slider
               name={'year'}
-              min={config.yearMin}
-              max={config.yearMax}
+              min={ranges.yearMin}
+              max={ranges.yearMax}
               value={year}
               onValueChange={this.handleChange} />
           </div>
