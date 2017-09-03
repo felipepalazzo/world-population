@@ -4,12 +4,14 @@ import {
   FETCH_COUNTRIES_FAIL
 } from '../actions'
 
-export default function (state = {
+const initialState = {
   countries: [],
   fetching: false,
   fetched: false,
   error: null,
-}, action) {
+}
+
+export default function (state = initialState, action) {
   switch (action.type) {
   case FETCH_COUNTRIES:
     return {...state, fetching: true}
