@@ -34,6 +34,7 @@ class Card extends Component {
               </div>
             </div>
             <div>
+              <span>gender distribution (F/M)</span>
               <ProgressBar
                 firstHalf={this.getPercentage(females, total)}
                 secondHalf={this.getPercentage(males, total)} />
