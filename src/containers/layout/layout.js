@@ -48,7 +48,7 @@ Layout.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-  const { countries, error, fetched, fetching } = state
+  const { countries, error, fetched, fetching } = state.fetchCountries
   return {
     countries,
     fetched,
