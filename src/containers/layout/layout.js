@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { setSortingFilter } from '../../actions'
 
 import CardList from '../../components/card-list/card-list'
 import Form from '../../components/form/form'
+import Selector from '../../components/selector/selector'
 
 class Layout extends Component {
+  constructor(props) {
+    super(props)
+    this.onSortChange = this.onSortChange.bind(this)
+  }
+  onSortChange(value) {
+    this.props.dispatch(setSortingFilter(value))
+  }
   render () {
-    const { countries, fetching, error } = this.props
+    const { countries, fetching, error, sortType } = this.props
     return (
       <div className="container">
         <div className="row">
@@ -22,6 +31,16 @@ class Layout extends Component {
             </div>
           </div>
         </div>
+        { countries.length <= 0 ? '' :
+          <div className="row">
+            <div className="col-sm-12">
+              Order by:
+              <Selector
+                onSortChange={this.onSortChange}
+                sortingType={sortType} />
+            </div>
+          </div>
+        }
         { error &&
           <div className="alert alert-danger">
             {error ? `Erro: ${error.statusText}` : ''}
@@ -47,10 +66,23 @@ Layout.propTypes = {
   )
 }
 
+const orderContries = (countries, sortType) => {
+  switch (sortType) {
+  case 'alpha':
+    return countries
+  case 'population':
+    return [...countries].sort((c1, c2) => c2.total - c1.total)
+  default:
+    return countries
+  }
+}
+
 const mapStateToProps = (state) => {
   const { countries, error, fetched, fetching } = state.fetchCountries
+  const sortType = state.setSorting
   return {
-    countries,
+    countries: orderContries(countries, sortType),
+    sortType,
     fetched,
     fetching,
     error,

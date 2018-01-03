@@ -1,12 +1,9 @@
 import { SET_SORTING } from '../actions'
 
-const setSorting = (state = {}, action) => {
+const setSorting = (state = 'alpha', action) => {
   switch (action.type) {
   case SET_SORTING:
-    return {
-      ...state,
-      sortType: action.sortType
-    }
+    return action.sortType
   default:
     return state
   }

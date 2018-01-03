@@ -5,7 +5,7 @@ export const FETCH_COUNTRIES_SUCESS = 'FETCH_COUNTRIES_SUCESS'
 export const FETCH_COUNTRIES_FAIL = 'FETCH_COUNTRIES_FAIL'
 export const SET_SORTING = 'SET_SORTING'
 
-const ROOT_URL = 'http://api.population.io/1.0/population/'
+const ROOT_URL = 'http://api.population.io:80/1.0/population/'
 
 export const fetchCountries = (year, age) => {
   const url = `${ROOT_URL}${year}/aged/${age}/?format=json`
