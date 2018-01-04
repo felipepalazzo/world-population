@@ -6,6 +6,7 @@ import { setSortingFilter } from '../../actions'
 import CardList from '../../components/card-list/card-list'
 import Form from '../../components/form/form'
 import Selector from '../../components/selector/selector'
+import { getPercentage } from '../../utils'
 
 class Layout extends Component {
   constructor(props) {
@@ -66,10 +67,6 @@ Layout.propTypes = {
   )
 }
 
-const getPercentage = country => {
-  
-}
-
 const orderContries = (countries, sortType) => {
   switch (sortType) {
   case 'alpha':
@@ -77,9 +74,11 @@ const orderContries = (countries, sortType) => {
   case 'population':
     return [...countries].sort((c1, c2) => c2.total - c1.total)
   case 'male':
-    return [...countries].sort((c1, c2) => c2.male - c1.female)
+    return [...countries]
+      .sort((c1, c2) => getPercentage(c2.males, c2.total) - getPercentage(c1.males, c1.total))
   case 'female':
-    return [...countries].sort((c1, c2) => c2.male - c1.female)
+    return [...countries]
+      .sort((c1, c2) => getPercentage(c2.females, c2.total) - getPercentage(c1.females, c1.total))
   default:
     return countries
   }
