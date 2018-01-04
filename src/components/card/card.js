@@ -1,14 +1,12 @@
 /* globals require */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { getPercentage } from '../../utils'
 
 import ProgressBar from '../progress-bar/progress-bar'
 import './card.css'
 
 class Card extends Component {
-  getPercentage(value, total, digits=2) {
-    return +((value/total) * 100).toFixed(digits)
-  }
   render() {
     const { country, females, males, total } = this.props.info
     let imgUrl
@@ -36,8 +34,8 @@ class Card extends Component {
             <div>
               <span>gender distribution (F/M)</span>
               <ProgressBar
-                firstHalf={this.getPercentage(females, total)}
-                secondHalf={this.getPercentage(males, total)} />
+                firstHalf={getPercentage(females, total)}
+                secondHalf={getPercentage(males, total)} />
             </div>
           </div>
         </div>

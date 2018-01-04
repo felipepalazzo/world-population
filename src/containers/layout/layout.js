@@ -66,12 +66,20 @@ Layout.propTypes = {
   )
 }
 
+const getPercentage = country => {
+  
+}
+
 const orderContries = (countries, sortType) => {
   switch (sortType) {
   case 'alpha':
     return countries
   case 'population':
     return [...countries].sort((c1, c2) => c2.total - c1.total)
+  case 'male':
+    return [...countries].sort((c1, c2) => c2.male - c1.female)
+  case 'female':
+    return [...countries].sort((c1, c2) => c2.male - c1.female)
   default:
     return countries
   }
